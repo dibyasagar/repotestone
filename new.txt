@@ -1,0 +1,27 @@
+regex /^.*\.(pdf|PDF)$/
+
+Please upload a pdf docs regexText
+
+
+CQ.wcm.SiteAdmin.createPage
+
+CQ.wcm.SiteAdmin.getTargetFromTree
+
+
+
+   if ( this.form.findField("label").getValue() == "" ) 
+        { 
+            var tmpName = this.form.findField("title").getValue(); 
+            // replace all spaces with 1 "-" 
+            tmpName = tmpName.replace(/\s+/g, "-"); 
+            // replace all non "good" chars with "" 
+            tmpName = tmpName.replace(/[^a-zA-Z0-9-]/g, ""); 
+            // replace all multiple "-" chars with 1 "-" 
+            tmpName = tmpName.replace(/--[-]*/g, "-"); 
+            // replace if last char is "-" with "" 
+            tmpName = tmpName.replace(/[-]+$/, ""); 
+            this.form.findField("label").setValue( tmpName ); 
+        } 
+
+cq-wcm-core-5.4.10
+added text
